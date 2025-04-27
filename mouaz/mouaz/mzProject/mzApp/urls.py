@@ -1,0 +1,42 @@
+from django.urls import path
+from .views import HomeView,AuthView,RemindView,DailyTasksView,HelpsView,DailyTasksReportsView,PBXView,AccountsView
+urlpatterns = [
+        path('', HomeView.as_view({'get': 'gethome'})),
+        path('mz/api/auth/', AuthView.as_view({'post': 'checklogin'})),
+        path('mz/api/auth/logout/', AuthView.as_view({'post': 'logout'})),
+        path('mz/api/auth/testApi/', AuthView.as_view({'post': 'testApi'})),
+        path('mz/api/auth/uploadimg/', AuthView.as_view({'post': 'uploadimg'})),
+        path('mz/api/accounts/getdata/', AccountsView.as_view({'post': 'getdata'})),
+        path('mz/api/accounts/update/', AccountsView.as_view({'patch': 'update'})),
+        path('mz/api/accounts/add/', AccountsView.as_view({'post': 'add'})),
+        path('mz/api/accounts/delete/', AccountsView.as_view({'delete': 'delete'})),
+        path('mz/api/accounts/logoutallaccounts/', AccountsView.as_view({'post': 'logoutallaccounts'})),
+        path('mz/api/accounts/logoutaccount/', AccountsView.as_view({'post': 'logoutaccount'})),
+        path('mz/api/accounts/getfullname/<int:eid>/', AccountsView.as_view({'patch': 'getfullname'})),
+        path('mz/api/reminds/getdata/', RemindView.as_view({'post': 'getdata'})),
+        path('mz/api/reminds/update/', RemindView.as_view({'patch': 'update'})),
+        path('mz/api/reminds/add/', RemindView.as_view({'post': 'add'})),
+        path('mz/api/reminds/delete/', RemindView.as_view({'delete': 'delete'})),
+        path('mz/api/reminds/sendalerts/', RemindView.as_view({'get': 'sendalerts'})),
+        path('mz/api/dailytasks/getdata/', DailyTasksView.as_view({'post': 'getdata'})),
+        path('mz/api/dailytasks/update/', DailyTasksView.as_view({'patch': 'update'})),
+        path('mz/api/dailytasks/add/', DailyTasksView.as_view({'post': 'add'})),
+        path('mz/api/dailytasks/delete/', DailyTasksView.as_view({'delete': 'delete'})),
+        path('mz/api/dailytasksreports/getdata/', DailyTasksReportsView.as_view({'post': 'getdata'})),
+        path('mz/api/dailytasksreports/getdatag/', DailyTasksReportsView.as_view({'get': 'getdata'})),
+        #path('mz/api/dailytaskseports/update/', DailyTasksReportsView.as_view({'patch': 'update'})),
+        path('mz/api/dailytasksreports/add/', DailyTasksReportsView.as_view({'post': 'add'})),
+        path('mz/api/dailytasksreports/delete/', DailyTasksReportsView.as_view({'delete': 'delete'})),
+        path('mz/api/helps/getdata/', HelpsView.as_view({'post': 'getdata'})),
+        path('mz/api/helps/update/<eid>/', HelpsView.as_view({'patch': 'update'})),
+        path('mz/api/helps/add/', HelpsView.as_view({'post': 'add'})),
+        path('mz/api/helps/delete/', HelpsView.as_view({'delete': 'delete'})),
+        path('mz/api/pbx/gettoken/', PBXView.as_view({'post': 'gettoken'})),
+        path('mz/api/pbx/queues/', PBXView.as_view({'post': 'queues'})),
+        path('mz/api/pbx/extension/query/', PBXView.as_view({'post': 'extension_query'})),
+        path('mz/api/pbx/call/query/', PBXView.as_view({'post': 'call_query'})),
+        path('mz/api/pbx/extension/query_call/', PBXView.as_view({'post': 'extension_query_call'})),
+        
+        
+
+              ]
